@@ -3,11 +3,11 @@ const { getAllProducts, createProduct, updateProduct, removeProductById } = requ
 
 const productRouter = express.Router();
 productRouter.route("/")
-             .get(getAllProducts)
-             .post(createProduct)
+             .get(authenticate, getAllProducts)
+             .post(authenticate, createProduct)
 productRouter.route("/:id")
-             .get(getAllProducts)
-             .put(updateProduct)
-             .delete(removeProductById)
+             .get(authenticate, getAllProducts)
+             .put(authenticate, updateProduct)
+             .delete(authenticate, removeProductById)
 
 module.exports = productRouter;

@@ -3,10 +3,10 @@ const { getAllRoles, addRol, updateRole, deleteRole } = require("../controllers/
 
 const roleRouter = express.Router();
 roleRouter.route("/")
-          .get(getAllRoles)
-          .post(addRol)
+          .get(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), getAllRoles)
+          .post(authenticate, authorize("ADMIN"), addRol)
 roleRouter.route("/:id")
-          .put(updateRole)
-          .delete(deleteRole)
+          .put(authenticate, authorize("ADMIN"), updateRole)
+          .delete(authenticate, authorize("ADMIN"), deleteRole)
 
 module.exports = roleRouter;

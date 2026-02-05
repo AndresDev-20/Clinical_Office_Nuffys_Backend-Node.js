@@ -11,8 +11,8 @@ userRouter.route("/")
 userRouter.route("/login")
           .post(login)
 userRouter.route("/:id")
-          .get(getUsersById)
-          .put(updateUser)
-          .delete(removeUser)
+          .get(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), getUsersById)
+          .put(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), updateUser)
+          .delete(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), removeUser)
 
 module.exports = userRouter;

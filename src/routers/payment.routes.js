@@ -4,11 +4,11 @@ const { getAllPayments, createPayment, getPaymentById, updatePayment, removePaym
 const paymentRouter = express.Router();
 
 paymentRouter.route("/")
-             .get(getAllPayments)
-             .post(createPayment)
+             .get(authenticate, getAllPayments)
+             .post(authenticate, createPayment)
 paymentRouter.route("/:id")
-             .get(getPaymentById)
-             .put(updatePayment)
-             .delete(removePaymentById)
+             .get(authenticate, getPaymentById)
+             .put(authenticate, updatePayment)
+             .delete(authenticate, removePaymentById)
 
 module.exports = paymentRouter;

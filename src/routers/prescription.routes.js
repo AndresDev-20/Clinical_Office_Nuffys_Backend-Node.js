@@ -4,11 +4,11 @@ const { getAllPrescriptions, createPrescription, getPrescriptionById, updatePres
 const prescriptionRouter = express.Router();
 
 prescriptionRouter.route("/")
-                  .get(getAllPrescriptions)
-                  .post(createPrescription)
+                  .get(authenticate, getAllPrescriptions)
+                  .post(authenticate, createPrescription)
 prescriptionRouter.route("/:id")
-                  .get(getPrescriptionById)
-                  .put(updatePrescription)
-                  .delete(removePrescriptionById)
+                  .get(authenticate, getPrescriptionById)
+                  .put(authenticate, updatePrescription)
+                  .delete(authenticate, removePrescriptionById)
 
 module.exports = prescriptionRouter;

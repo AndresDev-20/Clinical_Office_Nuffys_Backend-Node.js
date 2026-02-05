@@ -3,11 +3,11 @@ const { getAllPatient, getOnePatient, createPatient, updatePatient, removePatien
 
 const patientRouter = express.Router();
 patientRouter.route("/")
-             .get(getAllPatient)
-             .post(createPatient)
+             .get(authenticate, getAllPatient)
+             .post(authenticate, createPatient)
 patientRouter.route("/:id")
-             .get(getOnePatient)
-             .put(updatePatient)
-             .delete(removePatient)
+             .get(authenticate, getOnePatient)
+             .put(authenticate, updatePatient)
+             .delete(authenticate, removePatient)
 
 module.exports = patientRouter;

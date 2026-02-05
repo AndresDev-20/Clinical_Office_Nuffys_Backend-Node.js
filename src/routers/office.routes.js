@@ -3,11 +3,11 @@ const { getAllOffices, getOneOffice, createOffice, updateOffice, removeOffice } 
 
 const officeRouter = express.Router();
 officeRouter.route("/")
-            .get(getAllOffices)
-            .post(createOffice)
+            .get(authenticate, getAllOffices)
+            .post(authenticate, createOffice)
 officeRouter.route("/:id")
-            .get(getOneOffice)
-            .put(updateOffice)
-            .delete(removeOffice)
+            .get(authenticate, getOneOffice)
+            .put(authenticate, updateOffice)
+            .delete(authenticate, removeOffice)
 
 module.exports = officeRouter;

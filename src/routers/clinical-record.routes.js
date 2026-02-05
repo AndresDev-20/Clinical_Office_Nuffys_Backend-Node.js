@@ -3,11 +3,11 @@ const { getAllClinicalRecords, createClinicalRecords, getClinicalRecordsById, up
 
 const clinicalRecordRouter = express.Router();
 clinicalRecordRouter.route("/")
-                    .get(getAllClinicalRecords)
-                    .post(createClinicalRecords)
+                    .get(authenticate, getAllClinicalRecords)
+                    .post(authenticate, createClinicalRecords)
 clinicalRecordRouter.route("/:id")
-                    .get(getClinicalRecordsById)
-                    .put(updateClinicalRecords)
-                    .delete(removeClinicalRecords)
+                    .get(authenticate, getClinicalRecordsById)
+                    .put(authenticate, updateClinicalRecords)
+                    .delete(authenticate, removeClinicalRecords)
 
 module.exports = clinicalRecordRouter;

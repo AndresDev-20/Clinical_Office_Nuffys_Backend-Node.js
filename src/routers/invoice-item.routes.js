@@ -4,11 +4,11 @@ const { getInvoiceItemById, removeInvoiceItemById, getAllInvoiceItems, createInv
 const invoiceItemRouter = express.Router();
 
 invoiceItemRouter.route("/")
-                 .get(getAllInvoiceItems)
-                 .post(createInvoiceItem)
+                 .get(authenticate, getAllInvoiceItems)
+                 .post(authenticate, createInvoiceItem)
 invoiceItemRouter.route("/:id")
-                 .get(getInvoiceItemById)
-                 .put(updateInvoiceItem)
-                 .delete(removeInvoiceItemById)
+                 .get(authenticate, getInvoiceItemById)
+                 .put(authenticate, updateInvoiceItem)
+                 .delete(authenticate, removeInvoiceItemById)
 
 module.exports = invoiceItemRouter;

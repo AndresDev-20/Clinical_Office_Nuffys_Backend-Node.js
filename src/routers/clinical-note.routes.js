@@ -4,12 +4,12 @@ const { getAllClinicalNotes, createClinicalNote, getClinicalNoteById, updateClin
 const clinicalNoteRouter = express.Router();
 
 clinicalNoteRouter.route("/")
-                  .get(getAllClinicalNotes)
+                  .get(authenticate, getAllClinicalNotes)
                   .post(createClinicalNote)
 clinicalNoteRouter.route("/:id")
-                  .get(getClinicalNoteById)
-                  .put(updateClinicalNote)
-                  .delete(removeClinicalNoteById)
+                  .get(authenticate, getClinicalNoteById)
+                  .put(authenticate, updateClinicalNote)
+                  .delete(authenticate, removeClinicalNoteById)
 
 
 module.exports = clinicalNoteRouter;

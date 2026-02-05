@@ -4,11 +4,11 @@ const { getAllAppointments, createAppointment, getAppointmentById, updateAppoint
 const appointmentRouter = express.Router();
 
 appointmentRouter.route("/")
-                 .get(getAllAppointments)
-                 .post(createAppointment)
+                 .get(authenticate, getAllAppointments)
+                 .post(authenticate, createAppointment)
 appointmentRouter.route("/:id")
-                 .get(getAppointmentById)
-                 .put(updateAppointment)
-                 .delete(removeAppointmentById)
+                 .get(authenticate, getAppointmentById)
+                 .put(authenticate, updateAppointment)
+                 .delete(authenticate, removeAppointmentById)
 
 module.exports = appointmentRouter;

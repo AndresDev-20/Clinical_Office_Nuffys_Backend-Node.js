@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllClinicalRecords, createClinicalRecords, getClinicalRecordsById, updateClinicalRecords, removeClinicalRecords } = require("../controllers/clinical-record.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const clinicalRecordRouter = express.Router();
 clinicalRecordRouter.route("/")

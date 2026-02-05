@@ -7,7 +7,7 @@ const authorize = require("../utils/middlewares/role.middleware")
 const userRouter = express.Router();
 userRouter.route("/")
           .get(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), getAllUsers)
-          .post(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), createUser)
+          .post(createUser)
 userRouter.route("/login")
           .post(login)
 userRouter.route("/:id")

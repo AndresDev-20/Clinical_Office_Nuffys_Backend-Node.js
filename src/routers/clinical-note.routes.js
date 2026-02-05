@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllClinicalNotes, createClinicalNote, getClinicalNoteById, updateClinicalNote, removeClinicalNoteById } = require("../controllers/clinical-note.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const clinicalNoteRouter = express.Router();
 

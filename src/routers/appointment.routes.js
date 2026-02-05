@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllAppointments, createAppointment, getAppointmentById, updateAppointment, removeAppointmentById } = require("../controllers/appointment.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const appointmentRouter = express.Router();
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllPrescriptions, createPrescription, getPrescriptionById, updatePrescription, removePrescriptionById } = require("../controllers/prescription.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const prescriptionRouter = express.Router();
 

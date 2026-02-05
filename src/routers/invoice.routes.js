@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllInvoices, createInvoice, updateInvoice, getInvoiceById, removeInvoiceById } = require("../controllers/invoice.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const invoiceRouter = express.Router();
 

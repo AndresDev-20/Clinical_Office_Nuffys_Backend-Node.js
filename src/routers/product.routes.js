@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllProducts, createProduct, updateProduct, removeProductById } = require("../controllers/products.controller");
+const authenticate = require("../utils/middlewares/auth.middleware");
 
 const productRouter = express.Router();
 productRouter.route("/")

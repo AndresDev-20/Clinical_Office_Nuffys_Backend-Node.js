@@ -1,5 +1,7 @@
 const express = require('express')
-const { getAllRoles, addRol, updateRole, deleteRole } = require("../controllers/role.controller")
+const { getAllRoles, addRol, updateRole, deleteRole } = require("../controllers/role.controller");
+const authenticate = require('../utils/middlewares/auth.middleware');
+const authorize = require("../utils/middlewares/role.middleware")
 
 const roleRouter = express.Router();
 roleRouter.route("/")

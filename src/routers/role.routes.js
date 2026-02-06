@@ -5,7 +5,7 @@ const authorize = require("../utils/middlewares/role.middleware")
 
 const roleRouter = express.Router();
 roleRouter.route("/")
-          .get(authenticate, authorize("ADMIN", "DOCTOR", "SECRETARY"), getAllRoles)
+          .get( getAllRoles)
           .post(authenticate, authorize("ADMIN"), addRol)
 roleRouter.route("/:id")
           .put(authenticate, authorize("ADMIN"), updateRole)

@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_DEV}
+      MYSQL_DATABASE: ${DB_NAME_DEV}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: backend_app
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    command: >
+      sh -c "
+        npx sequelize-cli db:migrate &&
+        npx sequelize-cli db:seed:all &&
+        npm run dev
+      "
+
+volumes:
+  mysql_data:

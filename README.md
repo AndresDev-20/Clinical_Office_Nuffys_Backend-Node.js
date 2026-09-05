@@ -1,7 +1,7 @@
-# 🏥 TheraClinic – Backend API  
+# 🏥 Nuffys – Backend API  
 Sistema Integral de Gestión Clínica y Administrativa
 
-TheraClinic es una API RESTful diseñada para la gestión completa de consultorios clínicos especializados en terapias alternativas.  
+Nuffys es una API RESTful diseñada para la gestión completa de consultorios clínicos especializados en terapias alternativas.  
 El sistema permite administrar usuarios, roles, pacientes, historia clínica, citas, facturación y pagos parciales bajo un esquema seguro con autenticación basada en JWT.
 
 ---
